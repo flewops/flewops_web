@@ -162,7 +162,7 @@ export default function AboutCompany() {
                   className={`grid items-center gap-6 rounded-3xl border border-white/10 bg-ink-2 p-6 sm:gap-8 sm:p-8 lg:grid-cols-2 ${reversed ? "lg:[&>*:first-child]:order-2" : ""}`}
                 >
                   <div className="relative overflow-hidden rounded-2xl">
-                    <img src={c.image} alt={`${c.title} at FlewOps Global`} className="aspect-[16/10] w-full object-cover" />
+                    <img src={c.image} alt={`${c.title} at FlewOps Global`} loading="lazy" className="aspect-[16/10] w-full object-cover" />
                     <div className="absolute inset-0 bg-gradient-to-t from-ink-2 via-transparent to-transparent" />
                   </div>
                   <div>

@@ -17,13 +17,13 @@ export default function ServiceDetail() {
   return (
     <>
       <SEO
-        title={`${service.name} — ${service.tagline} | FlewOps Global`}
+        title={`${service.name} — ${service.tagline}`}
         description={service.description}
         keywords={`${service.name.toLowerCase()}, ${service.features.join(", ").toLowerCase()}, enterprise solutions, FlewOps Global, digital transformation`}
         path={`/services/${service.slug}`}
-        image={service.image || "/logo.png"}
+        image={service.image}
         jsonLd={[
-          ...(serviceSchema(service.slug) ? [serviceSchema(service.slug)] : []),
+          serviceSchema(service),
           breadcrumbSchema([
             { name: "Home", path: "/" },
             { name: "Services", path: `/services/${service.slug}` },

@@ -1,10 +1,12 @@
 import { useState, useRef } from "react";
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Upload, CheckCircle2, Briefcase, ArrowDown } from "lucide-react";
 import SEO from "../components/SEO";
 import { collectionPageSchema, breadcrumbSchema, speakableSchema } from "../lib/structuredData";
-import { perks } from "../lib/data";
+import { contact, perks } from "../lib/data";
+
+const APPLY_ENDPOINT =
+  "https://script.google.com/macros/s/AKfycbzWpiFuFTSeo0fbe0ATv9aUeL4Ih0OTiuQnPf4BqlqHPbKQMI7595q6CbrDTesWH65y/exec";
 
 const openRoles = [
   { title: "Full-Stack Developer", dept: "Engineering", type: "Full-time", location: "Remote / Hybrid" },
@@ -18,7 +20,7 @@ const openRoles = [
 export default function Careers() {
   const [form, setForm] = useState({ fullName: "", email: "", phoneNumber: "" });
   const [resume, setResume] = useState<File | null>(null);
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "missing-resume" | "error">("idle");
   const [selectedRole, setSelectedRole] = useState<string | null>(null);
   const applyRef = useRef<HTMLDivElement>(null);
 
@@ -35,7 +37,7 @@ export default function Careers() {
     e.preventDefault();
 
     if (!resume) {
-      setStatus("error");
+      setStatus("missing-resume");
       return;
     }
 
@@ -56,18 +58,17 @@ export default function Careers() {
         fullName: form.fullName,
         email: form.email,
         phoneNumber: form.phoneNumber,
+        role: selectedRole ?? "",
         file: fileBase64,
         fileName: resume.name,
       };
 
-      await fetch(
-        "https://script.google.com/macros/s/AKfycbzWpiFuFTSeo0fbe0ATv9aUeL4Ih0OTiuQnPf4BqlqHPbKQMI7595q6CbrDTesWH65y/exec",
-        {
-          method: "POST",
-          mode: "no-cors",
-          body: JSON.stringify(payload),
-        }
-      );
+      // no-cors gives an opaque response, so this only throws on network failure
+      await fetch(APPLY_ENDPOINT, {
+        method: "POST",
+        mode: "no-cors",
+        body: JSON.stringify(payload),
+      });
 
       setStatus("success");
       setForm({
@@ -215,9 +216,11 @@ export default function Careers() {
                 <CheckCircle2 className="h-5 w-5" /> Application submitted successfully! 🎉
               </div>
             )}
-            {status === "error" && (
+            {(status === "missing-resume" || status === "error") && (
               <div className="mt-6 rounded-xl border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-400">
-                Please upload a resume.
+                {status === "missing-resume"
+                  ? "Please upload a resume."
+                  : `Something went wrong. Please try again, or email your resume to ${contact.email}.`}
               </div>
             )}
 
@@ -268,7 +271,6 @@ export default function Careers() {
                     name="resume"
                     accept=".pdf,.doc,.docx"
                     onChange={(e) => setResume(e.target.files?.[0] || null)}
-                    required
                     className="hidden"
                   />
                 </label>

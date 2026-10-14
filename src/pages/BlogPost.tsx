@@ -2,7 +2,7 @@ import { useParams, Link, Navigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowUpRight, ArrowLeft, Clock, User, Calendar } from "lucide-react";
 import SEO from "../components/SEO";
-import { blogPosts } from "../lib/data";
+import { blogPosts } from "../lib/blogPosts";
 import { blogPostSchema, breadcrumbSchema, speakableSchema } from "../lib/structuredData";
 
 export default function BlogPost() {
@@ -12,16 +12,18 @@ export default function BlogPost() {
   if (!post) return <Navigate to="/blog" replace />;
 
   const related = blogPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
+  // post.date is a plain YYYY-MM-DD string, which Date parses as UTC midnight
   const formattedDate = new Date(post.date).toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
     day: "numeric",
+    timeZone: "UTC",
   });
 
   return (
     <>
       <SEO
-        title={`${post.title} | FlewOps Blog`}
+        title={post.title}
         description={post.excerpt}
         keywords={`${post.category.toLowerCase()}, ${post.title.toLowerCase()}, FlewOps Global blog, enterprise technology insights`}
         path={`/blog/${post.slug}`}
@@ -139,7 +141,7 @@ export default function BlogPost() {
                   className="group flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-ink-2 transition-all hover:border-white/25"
                 >
                   <div className="relative aspect-[16/10] overflow-hidden">
-                    <img src={p.image} alt={p.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                    <img src={p.image} alt={p.title} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
                     <span className="absolute left-3 top-3 rounded-lg bg-ink/80 px-2.5 py-1 text-xs font-semibold text-lime backdrop-blur">
                       {p.category}
                     </span>

@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, ChevronDown, Clock, Search } from "lucide-react";
 import SEO from "../components/SEO";
-import { blogPosts, faqs } from "../lib/data";
+import { faqs } from "../lib/data";
+import { blogPosts } from "../lib/blogPosts";
 import { blogSchema, faqSchema, breadcrumbSchema, speakableSchema } from "../lib/structuredData";
 
 const categories = ["All", "Data Security", "ERP Systems", "AI Automation", "E-Commerce", "Real-Time Chat", "Cloud Infrastructure", "Others"];
@@ -154,7 +155,7 @@ export default function Blog() {
                     className="group flex h-full flex-col overflow-hidden rounded-3xl border border-white/10 bg-ink-2 transition-all hover:border-white/25"
                   >
                     <div className="relative aspect-[16/10] overflow-hidden">
-                      <img src={post.image} alt={post.title} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
+                      <img src={post.image} alt={post.title} loading="lazy" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
                       <div className="absolute inset-0 bg-gradient-to-t from-ink-2/60 to-transparent" />
                       <span className="absolute left-3 top-3 rounded-lg bg-ink/80 px-2.5 py-1 text-xs font-semibold text-lime backdrop-blur">
                         {post.category}

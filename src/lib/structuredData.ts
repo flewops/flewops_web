@@ -1,6 +1,6 @@
-import { services, faqs, type FAQ } from "./data";
+import { services, faqs, type FAQ, type Service } from "./data";
 
-const BASE_URL = "https://flewops.com";
+export const BASE_URL = "https://flewops.com";
 
 // Organization schema — appears on every page via index.html
 export const organizationSchema = {
@@ -79,10 +79,7 @@ export function speakableSchema(path: string, cssSelectors: string[] = ["h1", ".
 }
 
 // Service schema for individual service pages
-export function serviceSchema(serviceSlug: string) {
-  const service = services.find((s) => s.slug === serviceSlug);
-  if (!service) return null;
-
+export function serviceSchema(service: Service) {
   return {
     "@context": "https://schema.org",
     "@type": "Service",

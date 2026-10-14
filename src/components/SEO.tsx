@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { BASE_URL } from "../lib/structuredData";
 
 type SEOProps = {
   title: string;
@@ -11,7 +12,6 @@ type SEOProps = {
 };
 
 const SITE_NAME = "FlewOps Global";
-const BASE_URL = "https://flewops.com";
 const DEFAULT_IMAGE = "/logo.png";
 
 function setMeta(attr: "name" | "property", key: string, content: string) {
@@ -36,7 +36,7 @@ function setLink(rel: string, href: string) {
   el.setAttribute("href", href);
 }
 
-function setJsonLd(id: string, data: object | object[]) {
+function setJsonLd(id: string, json: string) {
   const scriptId = `jsonld-${id}`;
   let el = document.getElementById(scriptId) as HTMLScriptElement | null;
   if (!el) {
@@ -45,7 +45,7 @@ function setJsonLd(id: string, data: object | object[]) {
     el.setAttribute("type", "application/ld+json");
     document.head.appendChild(el);
   }
-  el.textContent = JSON.stringify(data);
+  el.textContent = json;
 }
 
 export default function SEO({
@@ -57,6 +57,10 @@ export default function SEO({
   type = "website",
   jsonLd,
 }: SEOProps) {
+  // Pages pass jsonLd as an inline literal, so depend on its serialized form
+  // rather than its identity to avoid re-running on every render.
+  const jsonLdText = jsonLd ? JSON.stringify(jsonLd) : null;
+
   useEffect(() => {
     const fullTitle = title.includes(SITE_NAME) ? title : `${title} | ${SITE_NAME}`;
     const url = `${BASE_URL}${path}`;
@@ -90,10 +94,10 @@ export default function SEO({
     setLink("canonical", url);
 
     // JSON-LD structured data
-    if (jsonLd) {
-      setJsonLd("page", jsonLd);
+    if (jsonLdText) {
+      setJsonLd("page", jsonLdText);
     }
-  }, [title, description, keywords, path, image, type, jsonLd]);
+  }, [title, description, keywords, path, image, type, jsonLdText]);
 
   return null;
 }

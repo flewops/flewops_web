@@ -1,8 +1,7 @@
-import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Mail, Phone, ArrowUpRight, MapPin, Linkedin } from "lucide-react";
 import SEO from "../components/SEO";
-import { webPageSchema, breadcrumbSchema, contactPageSchema, speakableSchema } from "../lib/structuredData";
+import { breadcrumbSchema, contactPageSchema, speakableSchema } from "../lib/structuredData";
 import { contact } from "../lib/data";
 
 export default function Contact() {

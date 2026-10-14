@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowUpRight, Quote } from "lucide-react";
 import SEO from "../components/SEO";
-import { webPageSchema, breadcrumbSchema, profilePageSchema, speakableSchema } from "../lib/structuredData";
+import { breadcrumbSchema, profilePageSchema, speakableSchema } from "../lib/structuredData";
 import { teamMembers, perks } from "../lib/data";
 
 export default function AboutTeam() {

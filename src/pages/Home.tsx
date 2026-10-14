@@ -148,7 +148,7 @@ export default function Home() {
               </Link>
             </div>
             <div className="relative overflow-hidden rounded-3xl border border-white/10">
-              <img src="/images/team.jpg" alt="FlewOps Global team collaborating in the office" className="h-full w-full object-cover" />
+              <img src="/images/team.jpg" alt="FlewOps Global team collaborating in the office" loading="lazy" className="h-full w-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-transparent" />
             </div>
           </div>
@@ -156,82 +156,6 @@ export default function Home() {
       </section>
 
       {/* SERVICES BENTO */}
-      {/* <section id="services" className="relative py-20 sm:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6">
-          <div className="mb-10 flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
-            <div>
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-medium text-white/70">
-                <span className="h-1.5 w-1.5 rounded-full bg-lime" /> What we do
-              </span>
-              <h2 className="mt-4 font-display text-4xl font-bold tracking-tight sm:text-6xl">
-                Five pillars.
-                <br />
-                <span className="text-stroke">One operating system.</span>
-              </h2>
-            </div>
-            <p className="max-w-sm text-sm leading-relaxed text-white/60">
-              Each capability is modular — pick one or stack them all. They're
-              designed to interlock into a single, coherent system.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:grid-rows-2 lg:auto-rows-[minmax(220px,auto)]">
-            {services.map((s, i) => {
-              const Icon = s.icon;
-              const layout = [
-                "lg:col-span-2 lg:row-span-2",
-                "lg:col-span-2",
-                "lg:col-span-1",
-                "lg:col-span-1",
-                "lg:col-span-2",
-              ][i % 5];
-              return (
-                <motion.article
-                  key={s.id}
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-60px" }}
-                  transition={{ duration: 0.5, delay: i * 0.06 }}
-                  className={`group relative overflow-hidden rounded-3xl border border-white/10 bg-ink-2 p-6 transition-all hover:border-white/25 ${layout}`}
-                >
-                  <div className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${s.bg} opacity-60`} />
-                  {s.image && (
-                    <div className="pointer-events-none absolute inset-0 opacity-20 transition-opacity duration-500 group-hover:opacity-30">
-                      <img src={s.image} alt="" className="h-full w-full object-cover" />
-                    </div>
-                  )}
-                  <div className="relative flex h-full flex-col">
-                    <div className="flex items-start justify-between">
-                      <span className={`inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-white/15 bg-white/5 ${s.accent}`}>
-                        <Icon className="h-6 w-6" />
-                      </span>
-                      <ArrowUpRight className="h-5 w-5 text-white/30 transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-white" />
-                    </div>
-                    <div className="mt-auto pt-6">
-                      <p className={`text-xs font-semibold uppercase tracking-widest ${s.accent}`}>{s.tagline}</p>
-                      <h3 className="mt-1.5 font-display text-2xl font-bold sm:text-3xl">{s.name}</h3>
-                      <p className="mt-2 max-w-md text-sm leading-relaxed text-white/65">{s.shortDesc}</p>
-                      {(i === 0 || i === 1 || i === 4) && (
-                        <ul className="mt-5 flex flex-wrap gap-2">
-                          {s.features.slice(0, 4).map((f) => (
-                            <li key={f} className="inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/5 px-2.5 py-1 text-xs font-medium text-white/75">
-                              <Check className={`h-3 w-3 ${s.accent}`} />{f}
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                      <Link to={`/services/${s.slug}`} className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-white/80 hover:text-white">
-                        Learn More →
-                      </Link>
-                    </div>
-                  </div>
-                </motion.article>
-              );
-            })}
-          </div>
-        </div>
-      </section> */}
-            {/* SERVICES BENTO */}
       <section id="services" className="relative py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <div className="mb-10 flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
@@ -274,7 +198,7 @@ export default function Home() {
                   <div className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${s.bg} opacity-60`} />
                   {s.image && (
                     <div className="pointer-events-none absolute inset-0 opacity-20 transition-opacity duration-500 group-hover:opacity-30">
-                      <img src={s.image} alt="" className="h-full w-full object-cover" />
+                      <img src={s.image} alt="" loading="lazy" className="h-full w-full object-cover" />
                     </div>
                   )}
                   <div className="relative flex h-full flex-col">

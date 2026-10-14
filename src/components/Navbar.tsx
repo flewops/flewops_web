@@ -1,22 +1,14 @@
 import { useEffect, useState } from "react";
-import { href, Link, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowUpRight, ChevronDown } from "lucide-react";
-import { label } from "framer-motion/client";
+import { services } from "../lib/data";
 
 const navLinks = [
-{
-  label: "Turbine",
-  href: "https://turbine.flewops.com"
-},
-  { label: "Services", href: "/services/security", dropdown: [
-    { label: "Data Security", href: "/services/security" },
-    { label: "ERP Solutions", href: "/services/erp" },
-    { label: "E-Commerce", href: "/services/ecom" },
-    { label: "AI Solutions", href: "/services/ai" },
-    { label: "Real-Time Chat", href: "/services/chat" },
-    { label: "Network Solutions", href: "/services/network" },
-  ]},
+  { label: "Turbine", href: "https://turbine.flewops.com" },
+  { label: "Services", href: "/services/security", dropdown:
+    services.map((s) => ({ label: s.name, href: `/services/${s.slug}` })),
+  },
   { label: "About", href: "/about/company", dropdown: [
     { label: "Our Company", href: "/about/company" },
     { label: "Our Team", href: "/about/team" },
@@ -29,7 +21,15 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
-  const location = useLocation();
+  const { pathname } = useLocation();
+  const [prevPathname, setPrevPathname] = useState(pathname);
+
+  // Close menus on navigation by adjusting state during render rather than in an effect
+  if (pathname !== prevPathname) {
+    setPrevPathname(pathname);
+    setOpen(false);
+    setOpenDropdown(null);
+  }
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
@@ -39,10 +39,8 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    setOpen(false);
-    setOpenDropdown(null);
     window.scrollTo({ top: 0, behavior: "smooth" });
-  }, [location.pathname]);
+  }, [pathname]);
 
   return (
     <header
