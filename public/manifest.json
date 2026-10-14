@@ -1,0 +1,17 @@
+{
+  "name": "FlewOps Global — Enterprise Digital Solutions",
+  "short_name": "FlewOps",
+  "description": "FlewOps Global delivers enterprise-grade digital transformation: data security, customizable ERP, e-commerce, AI automation, real-time chat, and network solutions.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0f",
+  "theme_color": "#c4ff00",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "190x177",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

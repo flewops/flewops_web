@@ -1,0 +1,72 @@
+[
+  {
+    "question": "What is FlewOps Global?",
+    "answer": "FlewOps Global is a forward-thinking technology company founded in 2025 that delivers enterprise-grade digital solutions for modern businesses. The company specializes in data security, customizable ERP systems, e-commerce, AI automation, real-time chat, and network solutions. FlewOps Global is headquartered in India and serves clients globally.",
+    "source": "https://flewops.com/about/company"
+  },
+  {
+    "question": "What services does FlewOps Global offer?",
+    "answer": "FlewOps Global offers six core services: (1) Data Security with zero-trust architecture and AES-256 encryption, (2) Customizable ERP systems for finance, inventory, and HR, (3) E-Commerce solutions with frictionless checkout and headless commerce, (4) AI Automation including predictive analytics and AI agent orchestration, (5) Real-Time Chat applications with sub-100ms delivery and end-to-end encryption, and (6) Network Solutions with load balancing and 24/7 monitoring.",
+    "source": "https://flewops.com/"
+  },
+  {
+    "question": "When was FlewOps Global founded?",
+    "answer": "FlewOps Global was founded in 2025.",
+    "source": "https://flewops.com/about/company"
+  },
+  {
+    "question": "Where is FlewOps Global located?",
+    "answer": "FlewOps Global is headquartered in India and serves clients globally. The company uses a hybrid delivery model combining on-site collaboration with remote expertise.",
+    "source": "https://flewops.com/about/company"
+  },
+  {
+    "question": "How can I contact FlewOps Global?",
+    "answer": "You can contact FlewOps Global by emailing business@flewops.com, calling +91 88255 72114, or visiting their contact page at https://flewops.com/contact. You can also find them on LinkedIn at https://www.linkedin.com/company/flewops-global/.",
+    "source": "https://flewops.com/contact"
+  },
+  {
+    "question": "What is FlewOps Global's approach to data security?",
+    "answer": "FlewOps Global implements zero-trust architecture with AES-256 end-to-end encryption, multi-factor authentication, role-based access controls, and 24/7 threat monitoring. Their solutions are designed to meet GDPR, ISO 27001, and SOC 2 compliance requirements. Security is treated as a foundational layer, not an add-on.",
+    "source": "https://flewops.com/services/security"
+  },
+  {
+    "question": "Does FlewOps Global build custom ERP systems?",
+    "answer": "Yes, FlewOps Global builds customizable, modular ERP systems that manage finance, inventory, and HR from a single integrated platform. Their ERP features real-time analytics, role-based dashboards, API-first integration, and mobile-friendly access. The systems are designed to start small and scale with business growth.",
+    "source": "https://flewops.com/services/erp"
+  },
+  {
+    "question": "What AI automation capabilities does FlewOps Global offer?",
+    "answer": "FlewOps Global offers AI-driven automation including smart workflow automation, predictive analytics and forecasting, AI agent orchestration, natural-language operations, document processing with OCR, and integration with existing business systems. Their AI solutions deliver measurable ROI within 90 days of implementation.",
+    "source": "https://flewops.com/services/ai"
+  },
+  {
+    "question": "Can FlewOps Global build e-commerce platforms?",
+    "answer": "Yes, FlewOps Global builds high-performance e-commerce solutions with frictionless checkout, headless commerce capabilities, real-time inventory sync, ERP/CRM/payment integration, conversion tracking, and mobile-first design. Their stores typically see 30% increased online sales and 2x faster order processing.",
+    "source": "https://flewops.com/services/ecom"
+  },
+  {
+    "question": "What is FlewOps Global's development process?",
+    "answer": "FlewOps Global follows a four-step process: (1) Discover - map goals, stack, and constraints; (2) Design - validate architecture, UX, and data models before coding; (3) Build - agile sprints with weekly demos; (4) Scale - launch, monitor, and optimize as a long-term growth partner.",
+    "source": "https://flewops.com/"
+  },
+  {
+    "question": "Does FlewOps Global work with startups?",
+    "answer": "Yes, FlewOps Global works with both startups and enterprises. Their modular approach allows startups to start with a single service and add capabilities as they grow, while enterprises benefit from full-stack integration across ERP, security, AI, and infrastructure.",
+    "source": "https://flewops.com/blog"
+  },
+  {
+    "question": "What technologies does FlewOps Global use?",
+    "answer": "FlewOps Global uses React, TypeScript, Node.js, Python, and Go for application development. For infrastructure, they use AWS, Azure, Google Cloud, Kubernetes, and Docker. For AI, they leverage TensorFlow, PyTorch, and large language models.",
+    "source": "https://flewops.com/blog"
+  },
+  {
+    "question": "What is FlewOps Global's uptime guarantee?",
+    "answer": "FlewOps Global guarantees 99.9% uptime through their hybrid cloud infrastructure that combines their own secure servers with the scalability of AWS, Azure, and Google Cloud.",
+    "source": "https://flewops.com/about/company"
+  },
+  {
+    "question": "Does FlewOps Global provide ongoing support after launch?",
+    "answer": "Yes, FlewOps Global provides continuous monitoring, maintenance, and optimization as part of their long-term partnership. This includes 24/7 infrastructure monitoring, security updates, performance optimization, and feature enhancements.",
+    "source": "https://flewops.com/blog"
+  }
+]
